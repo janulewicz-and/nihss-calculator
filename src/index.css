@@ -136,7 +136,7 @@ h1 {
 }
 
 .answer {
-  display: grid;
+  display: flex;
   grid-template-columns: auto auto 1fr;
   align-items: center;
   gap: 0.75rem;
@@ -168,7 +168,7 @@ h1 {
 .answer__score {
   display: grid;
   place-items: center;
-  width: 2rem;
+  min-width: 30px;
   height: 2rem;
   color: #1e40af;
   background-color: #dbeafe;
