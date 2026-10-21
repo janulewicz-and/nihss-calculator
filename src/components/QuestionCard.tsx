@@ -4,19 +4,24 @@ import type { NIHSSScore, Question } from '../types/nihss'
 interface QuestionCardProps {
   question: Question
   selectedScore: NIHSSScore | undefined
+  isMissing: boolean
   onAnswerChange: (score: NIHSSScore) => void
 }
 
 function QuestionCard({
   question,
   selectedScore,
+  isMissing,
   onAnswerChange,
 }: QuestionCardProps) {
   const [instructionsVisible, setInstructionsVisible] = useState(false)
   const instructionsId = `${question.id}-instructions`
 
   return (
-    <article className="question-card">
+    <article
+      id={`question-${question.id}`}
+      className={`question-card${isMissing ? ' question-card--missing' : ''}`}
+    >
       <header className="question-card__header">
         <div>
           <h2>{question.title}</h2>

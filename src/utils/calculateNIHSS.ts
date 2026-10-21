@@ -5,6 +5,15 @@ import type {
   Question,
 } from '../types/nihss'
 
+export function getMissingQuestions(
+  questions: Question[],
+  selectedAnswers: NIHSSAnswers,
+): Question[] {
+  return questions.filter(
+    (question) => selectedAnswers[question.id] === undefined,
+  )
+}
+
 function getSeverity(total: number): NIHSSSeverity {
   if (total === 0) {
     return {
